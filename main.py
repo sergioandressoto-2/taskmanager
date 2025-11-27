@@ -12,25 +12,27 @@ def main():
     
     while True:
         print_menu()
-        option = int(input("Elige una opcion:"))
+        try:
+            option = int(input("Elige una opcion:"))
 
-        match option:
-            case 1:      
-                description = input("Descripcion tarea:")
-                manager.add_task(description)
-            case 2:
-                manager.list_task()
-            case 3:
-                id = int(input("Ingrese numero tarea:"))
-                manager.complet_task(id)
-            case 4:
-                 id = int(input("Ingrese numero tarea:"))
-                 manager.delete_task(id)
-            case 5:
-                print("saliendo...")
-                break
-            case _:
-                print("option no valida, Seleccione otra")    
-
+            match option:
+                case 1:      
+                    description = input("Descripcion tarea:")
+                    manager.add_task(description)
+                case 2:
+                    manager.list_task()
+                case 3:
+                    id = int(input("Ingrese numero tarea:"))
+                    manager.complet_task(id)
+                case 4:
+                    id = int(input("Ingrese numero tarea:"))
+                    manager.delete_task(id)
+                case 5:
+                    print("saliendo...")
+                    break
+                case _:
+                    print("option no valida, Seleccione otra")    
+        except ValueError:
+            print("option no valida, Seleccione otra")
 if __name__ == "__main__":
     main()
